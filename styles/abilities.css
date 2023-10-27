@@ -1,0 +1,227 @@
+.modal_abilities .modal-inner {
+    background-color: var(--clr-primary-white);
+}
+
+.modal-content-abilities-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+
+.abilities-search-wrapp {
+    position: relative;
+    display: flex;
+}
+
+.abilities-search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    content: "";
+    background: url("../imgs/icons/search.png") center/cover;
+    height: 2rem;
+    width: 2rem;
+}
+
+.abilities-search {
+    position: relative;
+    background-color: transparent;
+    border: 2px solid var(--clr-text-grey);
+    padding: 1rem;
+    padding-left: 3.5rem;
+    width: 25rem;
+    height: 5rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.abilities-search-results {
+    position: absolute;
+    top: 5.5rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--clr-primary-white);
+    box-shadow: 0 0 .2rem var(--clr-text-grey);
+    border-radius: .5rem;
+    padding: 0 1rem;
+    z-index: 1;
+}
+
+.ability-search-result {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #a2a2a2;
+}
+
+.ability-search-result-name {
+    padding: 0 1rem;
+    font-size: 2.2rem;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.abilities-search:focus {
+    outline: 1px solid var(--clr-primary-yellow);
+}
+
+.modal-content-ability-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 1rem;
+    overflow: auto;
+}
+
+.modal-content-ability-list::-webkit-scrollbar {
+    display: none;
+}
+
+.ability-row {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    box-shadow: 0 0 .3rem var(--clr-text-grey);
+    border-radius: .5rem;
+}
+
+.ability-name {
+    font-size: 4rem;
+    text-transform: capitalize;
+    letter-spacing: .05rem;
+    font-weight: 600;
+}
+
+.ability-description {
+    text-align: justify;
+    font-size: 1.7rem;
+    line-height: 2.3rem;
+    font-weight: 500;
+}
+
+/* Detail */
+.abilities-detail-modal {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    display: flex;
+    border-radius: 1rem 1rem 0 0;
+    transition: bottom 0.3s ease-in-out;
+    display: flex;
+    align-items: flex-end;
+}
+
+.show-detail-abilities {
+    bottom: 0;
+}
+
+.abilities-detail-wrapp {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+    padding: 1rem .5rem;
+    background-color: var(--clr-text-grey);
+    box-shadow: 0 0 .5rem var(--clr-text-grey);
+    border-radius: 1rem 1rem 0 0;
+}
+
+.abilities-detail-top {}
+
+.abilities-detail-move-name {
+    font-size: 3.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--clr-primary-white);
+}
+
+.abilities-detail-content {
+    width: 85%;
+}
+
+.abilities-detail-desc-wrapp,
+.abilities-detail-effect-wrapp {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: .5rem;
+}
+
+.abilities-detail-move-title {
+    margin: auto 0;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--clr-primary-white);
+
+}
+
+.abilities-detail-move-desc,
+.abilities-detail-move-effect {
+    font-size: 1.9rem;
+    color: var(--clr-primary-white);
+    font-weight: 200;
+    line-height: 2.5rem;
+    max-height: 13.5rem;
+    overflow: auto;
+}
+
+.abilities-detail-move-desc::-webkit-scrollbar,
+.abilities-detail-move-effect::-webkit-scrollbar {
+    display: none;
+}
+
+.abilities-detail-learners-wrapp {
+    display: grid;
+    grid-template-columns: repeat(5, 8rem);
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    max-height: 20rem;
+    padding: 1rem 0;
+    overflow: auto;
+}
+
+.abilities-detail-learners-wrapp::-webkit-scrollbar {
+    display: none
+}
+
+.abilities-detail-learner-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: .5rem;
+}
+
+.abilities-detail-learner-circle {
+    border: 2px solid var(--clr-primary-white);
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.abilities-detail-learner-artwork {
+    height: 5.5rem;
+    width: 5.5rem;
+}
+
+.abilities-detail-learner-name {
+    color: var(--clr-primary-white);
+    font-size: 1.6rem;
+    text-transform: capitalize;
+}

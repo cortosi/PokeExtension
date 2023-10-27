@@ -1,0 +1,235 @@
+/*  */
+.modal_items .modal-inner {
+    background: var(--clr-primary-white)
+}
+
+.modal-content-items-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+
+.items-search-wrapp {
+    position: relative;
+    display: flex;
+}
+
+.items-search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    content: "";
+    background: url("../imgs/icons/search.png") center/cover;
+    height: 2rem;
+    width: 2rem;
+}
+
+.items-search {
+    position: relative;
+    background-color: transparent;
+    border: 2px solid var(--clr-text-grey);
+    padding: 1rem;
+    padding-left: 3.5rem;
+    width: 25rem;
+    height: 5rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.items-search:focus {
+    outline: 1px solid var(--clr-primary-yellow);
+}
+
+.items-search-results {
+    position: absolute;
+    top: 5.5rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--clr-primary-white);
+    box-shadow: 0 0 .2rem var(--clr-text-grey);
+    border-radius: .5rem;
+    padding: 0 1rem;
+    z-index: 1;
+}
+
+.items-search-result {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #a2a2a2;
+}
+
+.items-search-result-icon-wrapp {
+    height: 3rem;
+    width: 3rem;
+}
+
+.items-search-result-icon {
+    height: 100%;
+}
+
+.items-search-result-name {
+    padding: 0 1rem;
+    font-size: 2.2rem;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.modal-content-items {
+    height: 85%;
+    padding: 2rem;
+    overflow: auto;
+}
+
+.modal-content-items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 17rem);
+    grid-auto-rows: 6.5rem;
+    gap: 1.5rem;
+    justify-content: center;
+    overflow: auto;
+    padding: 1rem 0;
+}
+
+.modal-content-items-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-content-items-grid-item {
+    padding: .5rem .7rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 .4rem 0 var(--clr-text-grey);
+    display: flex;
+    column-gap: .5rem;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+}
+
+.modal-content-items-grid-item:hover>.modal-content-items-grid-item-descr {
+    opacity: 1;
+}
+
+.modal-content-items-grid-item-left {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: .5rem;
+    padding-top: .4rem;
+}
+
+.item-name {
+    letter-spacing: .1rem;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.item-category {
+    font-weight: 400;
+    letter-spacing: .05rem;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+}
+
+.modal-content-items-grid-item-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.item-sprite {
+    height: 3rem;
+    width: 3rem;
+    background: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png") center/cover;
+}
+
+/* Detail Item */
+.items-detail-modal {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    display: flex;
+    border-radius: 1rem 1rem 0 0;
+    transition: bottom 0.3s ease-in-out;
+    display: flex;
+    align-items: flex-end;
+}
+
+.show-detail-items {
+    bottom: 0;
+}
+
+.items-detail-wrapp {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+    padding: 1rem .5rem;
+    background-color: var(--clr-text-grey);
+    box-shadow: 0 0 .5rem var(--clr-text-grey);
+    border-radius: 1rem 1rem 0 0;
+}
+
+.items-detail-top {}
+
+.items-detail-item-name-wrapp {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.items-detail-item-icon {
+    height: 3rem;
+    width: 3rem;
+}
+
+.items-detail-item-name {
+    font-size: 3.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--clr-primary-white);
+}
+
+.items-detail-content {
+    width: 80%;
+}
+
+.items-detail-desc-wrapp {
+    text-transform: capitalize;
+}
+
+.items-detail-desc-wrapp,
+.items-detail-effect-wrapp {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: .5rem;
+}
+
+.items-detail-item-title {
+    margin: auto 0;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--clr-primary-white);
+}
+
+.items-detail-item-desc,
+.items-detail-item-effect,
+.items-detail-item-cat {
+    font-size: 1.9rem;
+    color: var(--clr-primary-white);
+    font-weight: 200;
+    line-height: 2.5rem;
+}

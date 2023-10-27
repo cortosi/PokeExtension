@@ -1,0 +1,433 @@
+@import "./reset.css";
+@import "./pokedex.css";
+@import "./moves.css";
+@import "./items.css";
+@import "./abilities.css";
+@import "./natures.css";
+@import "./credits.css";
+@import "./loading_window.css";
+@import "./typechart.css";
+
+:root {
+    font-size: 62.5%;
+    /* Primary */
+    --clr-primary-blue: #3371AD;
+    --clr-primary-yellow: #F0C40E;
+    --clr-primary-white: #F5F5F7;
+
+    /* Text */
+    --clr-text-grey: #363636;
+
+    /* BG item colors */
+    --grass-clr-bg-item: #2B5448;
+    --fire-clr-bg-item: #47091F;
+    --electric-clr-bg-item: #ffd770;
+    --water-clr-bg-item: #4a83b4;
+    --bug-clr-bg-item: #737e21;
+    --flying-clr-bg-item: #a98ff3;
+    --normal-clr-bg-item: #a7a68d;
+    --poison-clr-bg-item: #7a3279;
+    --ground-clr-bg-item: #5E3719;
+    --fighting-clr-bg-item: #b12b27;
+    --fairy-clr-bg-item: #db8bb3;
+    --psychic-clr-bg-item: #eb5381;
+    --ghost-clr-bg-item: #492957;
+    --rock-clr-bg-item: #A09A71;
+    --ice-clr-bg-item: #96d9d6;
+    --dragon-clr-bg-item: #642fe7;
+    --dark-clr-bg-item: #3B5A7A;
+    --steel-clr-bg-item: #b7b7ce;
+    /* BG Types color */
+    --grass-clr-bg-type: #409153;
+    --fire-clr-bg-type: #F4762D;
+    --electric-clr-bg-type: #f0c965;
+    --water-clr-bg-type: #0975f1;
+    --bug-clr-bg-type: #aabb2b;
+    --flying-clr-bg-type: #BD8FD9;
+    --normal-clr-bg-type: #a7a79d;
+    --poison-clr-bg-type: #944793;
+    --ground-clr-bg-type: #856A54;
+    --fighting-clr-bg-type: #c95b57;
+    --fairy-clr-bg-type: #e6a5c5;
+    --psychic-clr-bg-type: #fa6f99;
+    --ghost-clr-bg-type: #744A6D;
+    --rock-clr-bg-type: #6B6424;
+    --ice-clr-bg-type: #86d1d0;
+    --dragon-clr-bg-type: #8e67f1;
+    --dark-clr-bg-type: #243748;
+    --steel-clr-bg-type: #508bad;
+    /*  */
+    --tool-item-width: 180px;
+    --tool-item-left: -var(var(--tool-item-left));
+    /*  */
+    --pokemon-detail-border-clr: #363636;
+    --pokemon-detail-title-bg-clr: #363636;
+}
+
+body {
+    background-color: var(--clr-primary-blue);
+    overflow: hidden;
+}
+
+/* Extension */
+.extension {
+    max-width: 600px;
+    max-height: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clr-primary-white);
+    font-family: 'Fredoka', sans-serif;
+    padding: 1.5rem 0;
+    overflow: hidden;
+    row-gap: 1.5rem;
+    margin: 0 auto;
+}
+
+/* -- Extension head */
+.extension-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 6rem;
+    width: 100%;
+    position: relative;
+}
+
+.logo {
+    height: 20rem;
+    width: 20rem;
+    background: url("../imgs/logo.png") center/contain no-repeat;
+}
+
+.changelog-btn {
+    font-weight: 400;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+/* -- Extension Main */
+.extension-main {
+    padding: 0 1rem;
+    height: 100%;
+    overflow: auto;
+}
+
+.extension-main-row {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    border-radius: 1rem;
+    transition: color .5s ease;
+}
+
+.extension-main-row::before,
+.extension-main-row::after {
+    position: absolute;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 50%;
+    transition: left .3s ease, right .3s ease;
+    z-index: -1;
+}
+
+.extension-main-row::before {
+    left: -50%;
+}
+
+.extension-main-row:nth-of-type(odd):before {
+    background-color: var(--clr-primary-blue);
+}
+
+.extension-main-row:nth-of-type(odd):after {
+    background-color: var(--clr-primary-yellow);
+}
+
+.extension-main-row:nth-of-type(even):before {
+    background-color: var(--clr-primary-yellow);
+}
+
+.extension-main-row:nth-of-type(even):after {
+    background-color: var(--clr-primary-blue);
+}
+
+.extension-main-row::after {
+    right: -50%;
+}
+
+.extension-main-row:hover {
+    color: var(--clr-primary-white);
+}
+
+.extension-main-row:hover::before {
+    left: 0;
+}
+
+.extension-main-row:hover::after {
+    right: 0;
+}
+
+.extension-main-row-name {
+    font-size: 5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .5s ease;
+    pointer-events: none;
+}
+
+.extension-main-row:nth-of-type(odd) .extension-main-row-name {
+    color: var(--clr-primary-blue);
+}
+
+.extension-main-row:nth-of-type(even) .extension-main-row-name {
+    color: var(--clr-primary-yellow);
+}
+
+.extension-main-row:hover .extension-main-row-name {
+    color: var(--clr-primary-white);
+}
+
+/* Modals */
+.modal {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: top .5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.active-modal {
+    top: 0;
+}
+
+.modal-hidden {
+    display: none;
+}
+
+.modal-inner {
+    position: relative;
+    height: 95%;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: 0 0 1rem 0 black;
+}
+
+.modal-topbar {
+    height: 5rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.modal-topbar-name,
+.challenge-detail-title,
+.pokemon-detail-title {
+    flex-grow: 1;
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #363636;
+}
+
+.modal-exit-btn,
+.challenge-detail-back-btn {
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    background: url("../imgs/icons/blackBackArrow.png") center/cover;
+}
+
+.modal-exit-btn {
+    background: url("../imgs/icons/back.png") center/cover;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: calc(100% - 5rem);
+}
+
+/* Changelog */
+@keyframes bounce {
+    0% {
+        transform: scale(0);
+        clip-path: circle(0% at 50% 50%);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        clip-path: circle(100% at 50% 50%);
+    }
+}
+
+.changelog-window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #363636e6;
+    clip-path: circle(0% at 50% 50%);
+    transform: scale(0);
+    z-index: 999;
+}
+
+.changelog-window * {
+    color: var(--clr-primary-white);
+}
+
+.show-changelog {
+    animation: bounce 1s forwards;
+}
+
+.changelog-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+}
+
+.changelog-list {
+    height: 80%;
+    width: 80%;
+    border: 1px solid white;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.changelog-list::-webkit-scrollbar {
+    display: none;
+}
+
+.changelog-list-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 1rem 0;
+}
+
+.changelog-list-item:last-of-type {
+    border-bottom: none;
+}
+
+.changelog-item-version {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--clr-primary-yellow);
+}
+
+.changelog-item-section {
+    display: flex;
+    flex-direction: column;
+    row-gap: .5rem;
+}
+
+.changelog-item-section-scope {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.changelog-item-section-list {
+    padding-left: 2.5rem;
+    list-style-type: disc;
+}
+
+.changelog-item-section-dot {
+    padding: .5rem 0;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+/* Tools */
+.tools-icon-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    padding: 1rem;
+    cursor: pointer;
+    width: 4rem;
+}
+
+.tools-icon-wrap:hover .tool-sidebar {
+    left: 0;
+}
+
+.tools-icon {
+    width: 2.5rem;
+}
+
+.tool-sidebar {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: inherit;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+    padding: 1rem 0;
+    border-radius: 0 .5rem .5rem 0;
+    background-color: var(--clr-primary-blue);
+    transition: left .2s ease;
+}
+
+.tool-item {
+    position: relative;
+    transition: transform .2s ease;
+}
+
+.tool-icon {
+    height: 3.5rem;
+    width: 3.5rem;
+    background: url("../imgs/icons/typechart.png") center/cover;
+}
+
+.tool-item:hover {
+    transform: scale(1.05);
+}
+
+.tool-item:hover .tool-desc {
+    opacity: 1;
+}
+
+.tool-desc {
+    position: absolute;
+    left: 4.5rem;
+    top: 0;
+    height: 3.5rem;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s ease;
+}

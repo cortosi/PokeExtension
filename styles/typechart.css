@@ -1,0 +1,289 @@
+.modal_typechart .modal-content {
+    height: 100%;
+}
+
+.typechart-back-icon {
+    background: url("../imgs/icons/back_white.png") center/contain no-repeat;
+    height: 2.5rem;
+    width: 2.5rem;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.modal_typechart .modal-inner {
+    height: 97%;
+    background-color: var(--clr-text-grey);
+}
+
+.modal-content-typechart-grid-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    row-gap: 1rem;
+}
+
+.modal-content-typechart-inner {
+    display: flex;
+    padding-top: 2rem;
+    padding-left: 1.5rem;
+    height: 100%;
+    column-gap: 1rem;
+}
+
+.modal-content-typechart-grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(18, 2.4rem);
+    grid-template-rows: repeat(18, 2.4rem);
+    gap: .3rem;
+}
+
+.typechart-defender {
+    text-align: center;
+    font-size: 1.6rem;
+    text-orientation: mixed;
+    color: var(--clr-primary-white);
+}
+
+.typechart-attacker {
+    color: var(--clr-primary-white);
+    text-align: center;
+    font-size: 1.6rem;
+    writing-mode: vertical-lr;
+}
+
+.attacker-list-icons-wrap {
+    display: flex;
+    row-gap: 1rem;
+    column-gap: .5rem;
+    justify-content: flex-end;
+}
+
+.defender-list-icons {
+    display: flex;
+    column-gap: .3rem;
+}
+
+.attacker-list-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    row-gap: .3rem;
+    padding-bottom: 1.95rem;
+}
+
+.defender-list-icons-wrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 100%;
+}
+
+.defender-icon,
+.attacker-icon {
+    height: 2.4rem;
+    width: 2.4rem;
+    transition: opacity .4s ease;
+    cursor: pointer;
+}
+
+.typechart-grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: .4rem;
+    cursor: pointer;
+    transition: opacity .4s ease;
+}
+
+.typechart-grid-item-2x {
+    background-color: var(--grass-clr-bg-type);
+}
+
+.typechart-grid-item-1x {
+    background-color: var(--normal-clr-bg-item);
+}
+
+.typechart-grid-item-05x {
+    background-color: var(--fighting-clr-bg-item);
+}
+
+.typechart-grid-item-0x {
+    background-color: black;
+    color: var(--clr-primary-white);
+}
+
+/*  */
+.attacker-icon-wrapp,
+.defender-icon-wrapp {
+    height: 2.4rem;
+    width: 2.4rem;
+    border-radius: .5rem;
+}
+
+.normal-typechart-icon-wrapp {
+    background-color: var(--normal-clr-bg-type);
+}
+
+.fire-typechart-icon-wrapp {
+    background-color: var(--fire-clr-bg-type);
+}
+
+.water-typechart-icon-wrapp {
+    background-color: var(--water-clr-bg-type);
+
+}
+
+.grass-typechart-icon-wrapp {
+    background-color: var(--grass-clr-bg-type);
+
+}
+
+.electric-typechart-icon-wrapp {
+    background-color: var(--electric-clr-bg-type);
+
+}
+
+.ice-typechart-icon-wrapp {
+    background-color: var(--ice-clr-bg-type);
+
+}
+
+.fighting-typechart-icon-wrapp {
+    background-color: var(--fighting-clr-bg-type);
+
+}
+
+.poison-typechart-icon-wrapp {
+    background-color: var(--poison-clr-bg-type);
+
+}
+
+.ground-typechart-icon-wrapp {
+    background-color: var(--ground-clr-bg-type);
+
+}
+
+.flying-typechart-icon-wrapp {
+    background-color: var(--flying-clr-bg-type);
+
+}
+
+.psychic-typechart-icon-wrapp {
+    background-color: var(--psychic-clr-bg-type);
+
+}
+
+.bug-typechart-icon-wrapp {
+    background-color: var(--bug-clr-bg-type);
+
+}
+
+.rock-typechart-icon-wrapp {
+    background-color: var(--rock-clr-bg-type);
+
+}
+
+.ghost-typechart-icon-wrapp {
+    background-color: var(--ghost-clr-bg-type);
+
+}
+
+.dragon-typechart-icon-wrapp {
+    background-color: var(--dragon-clr-bg-type);
+
+}
+
+.dark-typechart-icon-wrapp {
+    background-color: var(--dark-clr-bg-type);
+
+}
+
+.steel-typechart-icon-wrapp {
+    background-color: var(--steel-clr-bg-type);
+
+}
+
+.fairy-typechart-icon-wrapp {
+    background-color: var(--fairy-clr-bg-type);
+
+}
+
+/*  */
+.normal-weak-icon {
+    background: url("../imgs/normaltype.png") center/70% no-repeat;
+}
+
+.fighting-weak-icon {
+    background: url("../imgs/fightingtype.png") center/70% no-repeat;
+}
+
+.flying-weak-icon {
+    background: url("../imgs/flyingtype.png") center/70% no-repeat;
+}
+
+.poison-weak-icon {
+    background: url("../imgs/poisontype.png") center/70% no-repeat;
+}
+
+.ground-weak-icon {
+    background: url("../imgs/groundtype.png") center/70% no-repeat;
+}
+
+.rock-weak-icon {
+    background: url("../imgs/rocktype.png") center/70% no-repeat;
+}
+
+.bug-weak-icon {
+    background: url("../imgs/bugtype.png") center/70% no-repeat;
+}
+
+.ghost-weak-icon {
+    background: url("../imgs/ghosttype.png") center/70% no-repeat;
+}
+
+.steel-weak-icon {
+    background: url("../imgs/steeltype.png") center/70% no-repeat;
+}
+
+.fire-weak-icon {
+    background: url("../imgs/firetype.png") center/70% no-repeat;
+}
+
+.water-weak-icon {
+    background: url("../imgs/watertype.png") center/70% no-repeat;
+}
+
+.grass-weak-icon {
+    background: url("../imgs/grasstype.png") center/70% no-repeat;
+}
+
+.electric-weak-icon {
+    background: url("../imgs/electrictype.png") center/70% no-repeat;
+}
+
+.psychic-weak-icon {
+    background: url("../imgs/psychictype.png") center/70% no-repeat;
+}
+
+.ice-weak-icon {
+    background: url("../imgs/icetype.png") center/70% no-repeat;
+}
+
+.dragon-weak-icon {
+    background: url("../imgs/dragontype.png") center/70% no-repeat;
+}
+
+.dark-weak-icon {
+    background: url("../imgs/darktype.png") center/70% no-repeat;
+}
+
+.fairy-weak-icon {
+    background: url("../imgs/fairytype.png") center/70% no-repeat;
+}

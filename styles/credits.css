@@ -1,0 +1,69 @@
+/* Credits */
+.credits-window {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--clr-primary-white);
+    transition: top .3s ease;
+    padding: 2rem;
+}
+
+.show-credits {
+    top: 0;
+}
+
+.credits-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.credits-title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.credits-back-icon {
+    background: url("../imgs/icons/back.png") center/cover;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+}
+
+.credits-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.credits-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr auto;
+    align-content: center;
+    align-items: center;
+}
+
+.credit-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: .5rem
+}
+
+.credit-desc {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.credit-name {
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    text-align: center;
+    font-weight: 400;
+}

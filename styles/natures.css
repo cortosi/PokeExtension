@@ -1,0 +1,120 @@
+.modal_natures .modal-inner {
+    background: var(--clr-primary-white)
+}
+
+.modal-content-natures-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+
+.natures-search-wrapp {
+    position: relative;
+    display: flex;
+}
+
+.natures-search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    content: "";
+    background: url("../imgs/icons/search.png") center/cover;
+    height: 2rem;
+    width: 2rem;
+}
+
+.natures-search {
+    position: relative;
+    background-color: transparent;
+    border: 2px solid var(--clr-text-grey);
+    padding: 1rem;
+    padding-left: 3.5rem;
+    width: 25rem;
+    height: 5rem;
+    border-radius: .5rem;
+    font-size: 2rem;
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* Table */
+.modal-content-nature-table-wrapp {
+    flex-grow: 1;
+    overflow: auto;
+    padding: 0 1rem;
+}
+
+.modal-content-nature-table-wrapp::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-content-nature-table {
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+    table-layout: fixed;
+}
+
+.nature-table-head {
+    display: table-header-group;
+    box-shadow: 0 0 .4rem var(--clr-text-grey);
+    background-color: var(--clr-text-grey);
+    border-radius: .5rem;
+    position: sticky;
+    top: 0;
+}
+
+.nature-table-head-item {
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 1rem 0;
+    color: var(--clr-primary-white);
+    line-height: 2.5rem;
+}
+
+.nature-table-head-item:first-child {
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.nature-table-head-item:last-child {
+    border-radius: 0 .5rem .5rem 0;
+}
+
+.nature-table-body {
+    display: table-row-group;
+    border-collapse: separate;
+    border-spacing: 1rem;
+}
+
+.nature-table-row {
+    box-shadow: 0 0 .4rem var(--clr-text-grey);
+    border-radius: .5rem;
+    display: table-row;
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.nature-row-cell {
+    display: table-cell;
+    text-align: center;
+    padding: 1.5rem 0;
+    text-transform: capitalize;
+}
+
+.nature-row-cell:first-child {
+    border-right: 1px solid black;
+    font-weight: 500;
+}
+
+.row_cell_inc {
+    color: rgb(15, 119, 15);
+}
+
+.row_cell_dec {
+    color: rgb(216, 15, 15);
+}

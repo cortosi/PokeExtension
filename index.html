@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fredoka:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles/index.css">
+    <title>PokÈxtension</title>
+</head>
+
+<body>
+    <div class="extension">
+        <div class="extension-head">
+            <div class="tools-icon-wrap">
+                <img class="tools-icon" src="./imgs/icons/tools.png">
+                <div class="tool-sidebar">
+                    <div class="tool-item typechart-grid-icon">
+                        <div class="tool-icon"></div>
+                        <p class="tool-desc">Typechart</p>
+                    </div>
+                </div>
+            </div>
+            <div class="logo"></div>
+            <p class="changelog-btn">beta - 0.1.0</p>
+        </div>
+        <div class="extension-main">
+            <div class="extension-main-row" id="row_pokedex" data-modal="modal_pokedex">
+                <p class="extension-main-row-name">Pokedex</p>
+            </div>
+            <div class="extension-main-row" id="row_moves" data-modal="modal_moves">
+                <p class="extension-main-row-name">Moves</p>
+            </div>
+            <div class="extension-main-row" id="row_items" data-modal="modal_items">
+                <p class="extension-main-row-name">Items</p>
+            </div>
+            <div class="extension-main-row" id="row_abilities" data-modal="modal_abilities">
+                <p class="extension-main-row-name">Abilities</p>
+            </div>
+            <div class="extension-main-row" id="row_natures" data-modal="modal_natures">
+                <p class="extension-main-row-name">Natures</p>
+            </div>
+            <div class="extension-main-row" id="row_credits" data-modal="modal_credits">
+                <p class="extension-main-row-name">Credits</p>
+            </div>
+        </div>
+        <div class="modal modal_pokedex modal-hidden">
+            <div class="modal-inner">
+                <div class="modal-topbar">
+                    <p class="modal-topbar-name">Pokedex</p>
+                    <div class="modal-exit-btn"></div>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-content-pokedex-search">
+                        <div class="pokedex-search-wrapp">
+                            <span class="pokedex-search-icon"></span> <input class="pokedex-search" type="search"
+                                name="" id="" placeholder="Bulbasaur...">
+                            <div class="pokedex-search-results"></div>
+                        </div>
+                    </div>
+                    <div class="modal-content-pokedex-grid"></div>
+                </div>
+                <div class="pokemon-detail-modal">
+                    <div class="pokemon-detail-left">
+                        <div class="pokemon-detail-left-top">
+                            <p class="pokemon-detail-back-btn"><span class="pokemon-detail-back-arrow"></span>Back</p>
+                        </div>
+                        <div class="pokemon-detail-number-wrapp">
+                            <p class="pokemon-detail-number">#001</p>
+                        </div>
+                        <div class="pokemon-detail-artwork"></div>
+                        <div class="pokemon-detail-left-bottom">
+                            <div class="pokemon-detail-name-wrapp">
+                                <p class="pokemon-detail-name">Charmander</p>
+                            </div>
+                            <div class="pokemon-detail-types-wrapp">
+                                <div class="pokemon-detail-type">
+                                    <span class="pokemon-detail-type-icon"></span>
+                                    <p class="pokemon-detail-type-name"></p>
+                                </div>
+                                <div class="pokemon-detail-subtype">
+                                    <span class="pokemon-detail-subtype-icon"></span>
+                                    <p class="pokemon-detail-subtype-name"></p>
+                                </div>
+                            </div>
+                            <div class="pokemon-detail-bst-wrapp">
+                                <div class="pokemon-detail-bst">
+                                    <p class="pokemon-bst-value"></p>
+                                    <p class="pokemon-bst-bst">BST</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pokemon-detail-right">
+                        <div class="pokemon-detail-nav-wrapp">
+                            <div class="pokemon-detail-nav">
+                                <p class="pokemon-detail-nav-item active_nav_item" data-type="about_panel">About</p>
+                                <p class="pokemon-detail-nav-item" data-type="stats_panel">Stats</p>
+                                <p class="pokemon-detail-nav-item" data-type="moves_panel">Moves</p>
+                                <!-- <p class="pokemon-detail-nav-item">About</p> -->
+                            </div>
+                        </div>
+                        <div class="pokemon-detail-panel about_panel">
+                            <div class="pokemon-about-card about_card">
+                                <div class="pokemon-about-card-top">
+                                    <div class="pokemon-about-card-top-title">About</div>
+                                </div>
+                                <div class="pokemon-about-card-content">
+                                    <div class="pokemon-about-card-about-measure">
+                                        <div class="pokemon-about-card-about-height-wrapp">
+                                            <span class="pokemon-height-icon"></span>
+                                            <p class="pokemon-height-value"></p>
+                                        </div>
+                                        <div class="pokemon-about-card-about-types">
+                                            <div class="pokemon-about-card-about-type">
+                                                <div class="pokemon-about-card-about-type-icon"></div>
+                                            </div>
+                                            <div class="pokemon-about-card-about-subtype">
+                                                <div class="pokemon-about-card-about-subtype-icon"></div>
+                                            </div>
+                                        </div>
+                                        <div class="pokemon-about-card-about-weight-wrapp">
+                                            <span class="pokemon-weight-icon"></span>
+                                            <p class="pokemon-weight-value"></p>
+                                        </div>
+                                    </div>
+                                    <p class="pokemon-about-card-about-desc"></p>
+                                    <p class="pokemon-about-card-about-genus"></p>
+                                </div>
+                            </div>
+                            <div class="pokemon-about-card breeding_card">
+                                <div class="pokemon-breeding-card-top">
+                                    <div class="pokemon-breeding-card-top-title">Breeding</div>
+                                </div>
+                                <div class="pokemon-breeding-card-content">
+                                    <div class="breeding-card-groups-wrapp">
+                                        <p class="egg-group-title">Egg Groups</p>
+                                        <div class="egg-groups">
+                                            <p class="egg-group-first"></p>
+                                            <p class="egg-group-second"></p>
+                                        </div>
+                                    </div>
+                                    <div class="breeding-card-cycle-wrapp">
+                                        <p class="egg-cycle-title">Hatch Time</p>
+                                        <p class="egg-cycle-value"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pokemon-about-card abilites_card">
+                                <div class="pokemon-abilities-card-top">
+                                    <div class="pokemon-abilities-card-top-title">Abilities</div>
+                                </div>
+                                <div class="pokemon-abilities-card-content">
+                                    <div class="pokemon-ability-main-wrapp">
+                                        <p class="pokemon-ability-main-title">Main</p>
+                                        <p class="pokemon-ability-main"></p>
+                                    </div>
+                                    <div class="pokemon-ability-hidden-wrapp">
+                                        <p class="pokemon-ability-hidden-title">Hidden</p>
+                                        <p class="pokemon-ability-hidden"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pokemon-about-card evolutions_card">
+                                <div class="pokemon-evolutions-card-top">
+                                    <div class="pokemon-evolutions-card-top-title">Evolutions</div>
+                                </div>
+                                <div class="pokemon-evolutions-card-content"></div>
+                            </div>
+                        </div>
+                        <div class="pokemon-detail-panel stats_panel hide-detail-panel">
+                            <div class="pokemon-stats-card stats_card">
+                                <div class="pokemon-stats-card-top">
+                                    <div class="pokemon-stats-card-top-title">Stats</div>
+                                </div>
+                                <div class="pokemon-stats-card-content">
+                                    <div class="pokemon-stats-names">
+                                        <p class="stats-item-name">HP</p>
+                                        <p class="stats-item-name">Attack</p>
+                                        <p class="stats-item-name">Defense</p>
+                                        <p class="stats-item-name">Sp. Attack</p>
+                                        <p class="stats-item-name">Sp. Defense</p>
+                                        <p class="stats-item-name">Speed</p>
+                                    </div>
+                                    <div class="pokemon-stats-bars">
+                                        <div class="pokemon-stat-bar">
+                                            <div class="pokemon-stat-bar-fill hp-bar-stat"></div>
+                                        </div>
+                                        <div class="pokemon-stat-bar">
+                                            <div class="pokemon-stat-bar-fill attk-bar-stat"></div>
+                                        </div>
+                                        <div class="pokemon-stat-bar">
+                                            <div class="pokemon-stat-bar-fill def-bar-stat"></div>
+                                        </div>
+                                        <div class="pokemon-stat-bar">
+                                            <div class="pokemon-stat-bar-fill spdef-bar-stat"></div>
+                                        </div>
+                                        <div class="pokemon-stat-bar">
+                                            <div class="pokemon-stat-bar-fill spattk-bar-stat"></div>
+                                        </div>
+                                        <div class="pokemon-stat-bar">
+                                            <div class="pokemon-stat-bar-fill speed-bar-stat"></div>
+                                        </div>
+                                    </div>
+                                    <div class="pokemon-stats-values">
+                                        <p class="pokemon-stat-value hp-value"></p>
+                                        <p class="pokemon-stat-value attk-value"></p>
+                                        <p class="pokemon-stat-value def-value"></p>
+                                        <p class="pokemon-stat-value spdef-value"></p>
+                                        <p class="pokemon-stat-value spattk-value"></p>
+                                        <p class="pokemon-stat-value speed-value"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pokemon-stats-card effectiveness_card">
+                                <div class="pokemon-effectiveness-card-top">
+                                    <div class="pokemon-effectiveness-card-top-title">Type Effectiveness</div>
+                                </div>
+                                <div class="pokemon-effectiveness-card-content">
+                                    <div class="pokemon-effectiveness-section strongly-weak_section">
+                                        <p class="pokemon-effectiveness-title">Strongly Weak to<span
+                                                class="pokemon-effectiveness-multiplier"> (4x)</p>
+                                        <div class="pokemon-effectiveness-list strongly-weak_list">
+                                        </div>
+                                    </div>
+                                    <div class="pokemon-effectiveness-section weak_section">
+                                        <p class="pokemon-effectiveness-title">Weak to<span
+                                                class="pokemon-effectiveness-multiplier"> (2x)</p>
+                                        <div class="pokemon-effectiveness-list weak_list">
+                                        </div>
+                                    </div>
+                                    <div class="pokemon-effectiveness-section normal_section">
+                                        <p class="pokemon-effectiveness-title">Normally Damaged By<span
+                                                class="pokemon-effectiveness-multiplier"> (1x)</span> </p>
+                                        <div class="pokemon-effectiveness-list normal_list">
+                                        </div>
+                                    </div>
+                                    <div class="pokemon-effectiveness-section resistant_section">
+                                        <p class="pokemon-effectiveness-title">Resistant to<span
+                                                class="pokemon-effectiveness-multiplier"> (0.5x)</p>
+                                        <div class="pokemon-effectiveness-list resistant_list">
+
+                                        </div>
+                                    </div>
+                                    <div class="pokemon-effectiveness-section immune_section">
+                                        <p class="pokemon-effectiveness-title">Immune to<span
+                                                class="pokemon-effectiveness-multiplier"> (0x)</p>
+                                        <div class="pokemon-effectiveness-list immune_list">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pokemon-detail-panel moves_panel hide-detail-panel">
+                            <div class="pokemon-detail-moves-card">
+                                <div class="pokemon-detail-moves-gen-wrapp">
+                                    <div class="gen-selector-filter">
+                                        <p class="gen-filter-name">Scarlet / Violet</p>
+                                        <p class="gen-filter-arrow"></p>
+                                        <div class="gen-options-filter-wrapp">
+                                            <div class="gen-option-filter">
+                                                <p class="gen-option-description" data-option="red-blue">Red - Blue</p>
+                                                <p class="gen-option-description" data-option="yellow">Yellow</p>
+                                                <p class="gen-option-description" data-option="gold-silver">Gold -
+                                                    Silver</p>
+                                                <p class="gen-option-description" data-option="crystal">Crystal</p>
+                                                <p class="gen-option-description" data-option="ruby-sapphire">Ruby -
+                                                    Shapphire</p>
+                                                <p class="gen-option-description" data-option="emerald">Emerald</p>
+                                                <p class="gen-option-description" data-option="firered-leafgreen">Fire
+                                                    Red - Leaf Green</p>
+                                                <p class="gen-option-description" data-option="diamond-pearl">Diamond -
+                                                    Pearl</p>
+                                                <p class="gen-option-description" data-option="platinum">Platinum</p>
+                                                <p class="gen-option-description" data-option="heartgold-soulsilver">
+                                                    HeartGold - SoulSilver</p>
+                                                <p class="gen-option-description" data-option="black-white">Black -
+                                                    White</p>
+                                                <p class="gen-option-description" data-option="black-2-white-2">Black 2
+                                                    - White 2</p>
+                                                <p class="gen-option-description" data-option="x-y">X - Y</p>
+                                                <p class="gen-option-description"
+                                                    data-option="omega-ruby-alpha-sapphire">Omega Ruby - Alpha Shapphire
+                                                </p>
+                                                <p class="gen-option-description" data-option="sun-moon">Sun - Moon</p>
+                                                <p class="gen-option-description" data-option="ultra-sun-ultra-moon">
+                                                    Ultra Sun - Ultra Moon</p>
+                                                <p class="gen-option-description"
+                                                    data-option="lets-go-pikachu-lets-go-eevee">Let's Go Pikachu</p>
+                                                <p class="gen-option-description" data-option="sword-shield">Sword &
+                                                    Shield</p>
+                                                <p class="gen-option-description"
+                                                    data-option="brilliant-diamond-and-shining-pearl">Brilliant Diamond
+                                                    - Shining Pearl</p>
+                                                <p class="gen-option-description" data-option="scarlet-violet">Scarlet -
+                                                    Violet</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pokemon-detail-moves-filters-wrapp">
+                                    <input class="move-filter" type="radio" name="movefl" id="level-filter"
+                                        value="level-up" checked>
+                                    <label class="move-filter-label" id="level-filter-label"
+                                        for="level-filter">Levels</label>
+                                    <input class="move-filter" type="radio" name="movefl" id="tm-filter"
+                                        value="machine">
+                                    <label class="move-filter-label" id="tm-filter-label" for="tm-filter">TM</label>
+                                    <input class="move-filter" type="radio" name="movefl" id="egg-filter" value="egg">
+                                    <label class="move-filter-label" id="egg-filter-label" for="egg-filter">Egg</label>
+                                    <input class="move-filter" type="radio" name="movefl" id="tutor-filter"
+                                        value="tutor">
+                                    <label class="move-filter-label" id="tutor-filter-label"
+                                        for="tutor-filter">Tutor</label>
+                                </div>
+                                <div class="pokemon-detail-moves-table-wrapp">
+                                    <div class="pokemon-detail-moves-table">
+                                        <div class="pokemon-moves-table-head">
+                                            <p class="pokemon-moves-table-head-item" id="moves-table-head-lv">Lv</p>
+                                            <p class="pokemon-moves-table-head-item" id="moves-table-head-move">Move</p>
+                                            <p class="pokemon-moves-table-head-item" id="moves-table-head-type">Type</p>
+                                            <p class="pokemon-moves-table-head-item" id="moves-table-head-pwr">Pwr</p>
+                                            <p class="pokemon-moves-table-head-item" id="moves-table-head-acc">Acc</p>
+                                            <p class="pokemon-moves-table-head-item" id="moves-table-head-pp">PP</p>
+                                        </div>
+                                        <div class="pokemon-moves-table-body">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal_moves modal-hidden">
+            <div class="modal-inner">
+                <div class="modal-topbar">
+                    <p class="modal-topbar-name">Moves</p>
+                    <div class="modal-exit-btn"></div>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-content-moves-search">
+                        <div class="moves-search-wrapp">
+                            <span class="moves-search-icon"></span> <input class="moves-search" type="search"
+                                placeholder="Search...">
+                            <div class="moves-search-results">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-content-moves-grid">
+
+                    </div>
+                </div>
+                <div class="moves-detail-modal">
+                    <div class="moves-detail-wrapp">
+                        <div class="moves-detail-top">
+                            <p class="moves-detail-move-name"></p>
+                        </div>
+                        <div class="moves-detail-content">
+                            <div class="moves-detail-typecat-wrapp">
+                                <div class="moves-detail-type-wrapp">
+                                    <div class="moves-detail-type-icon"></div>
+                                </div>
+                                <div class="moves-detail-cat-wrapp">
+                                    <div class="moves-detail-cat-icon"></div>
+                                </div>
+                            </div>
+                            <div class="moves-detail-desc-wrapp">
+                                <p class="moves-detail-move-title">Description</p>
+                                <p class="moves-detail-move-desc"></p>
+                            </div>
+                            <div class="moves-detail-effect-wrapp">
+                                <p class="moves-detail-move-title">Effect</p>
+                                <p class="moves-detail-move-effect"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal_items modal-hidden">
+            <div class="modal-inner">
+                <div class="modal-topbar">
+                    <p class="modal-topbar-name">items</p>
+                    <div class="modal-exit-btn"></div>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-content-items-search">
+                        <div class="items-search-wrapp">
+                            <span class="items-search-icon"></span> <input class="items-search" type="search"
+                                placeholder="Search...">
+                            <div class="items-search-results">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-content-items-grid"></div>
+                </div>
+                <div class="items-detail-modal">
+                    <div class="items-detail-wrapp">
+                        <div class="items-detail-top">
+                            <div class="items-detail-item-name-wrapp">
+                                <div class="items-detail-item-icon"></div>
+                                <p class="items-detail-item-name"></p>
+                            </div>
+                        </div>
+                        <div class="items-detail-content">
+                            <div class="items-detail-desc-wrapp">
+                                <p class="items-detail-item-title">Category</p>
+                                <p class="items-detail-item-cat"></p>
+                            </div>
+                            <div class="items-detail-desc-wrapp">
+                                <p class="items-detail-item-title">Description</p>
+                                <p class="items-detail-item-desc"></p>
+                            </div>
+                            <div class="items-detail-effect-wrapp">
+                                <p class="items-detail-item-title">Effect</p>
+                                <p class="items-detail-item-effect"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal_abilities modal-hidden">
+            <div class="modal-inner">
+                <div class="modal-topbar">
+                    <p class="modal-topbar-name">Abilities</p>
+                    <div class="modal-exit-btn"></div>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-content-abilities-search">
+                        <div class="abilities-search-wrapp">
+                            <span class="abilities-search-icon"></span> <input class="abilities-search" type="search"
+                                placeholder="Search...">
+                        </div>
+                        <div class="abilities-search-results">
+
+                        </div>
+                    </div>
+                    <div class="modal-content-ability-list">
+
+                    </div>
+                </div>
+                <div class="abilities-detail-modal">
+                    <div class="abilities-detail-wrapp">
+                        <div class="abilities-detail-top">
+                            <p class="abilities-detail-move-name"></p>
+                        </div>
+                        <div class="abilities-detail-content">
+                            <div class="abilities-detail-desc-wrapp">
+                                <p class="abilities-detail-move-title">Description</p>
+                                <p class="abilities-detail-move-desc"></p>
+                            </div>
+                            <div class="abilities-detail-effect-wrapp">
+                                <p class="abilities-detail-move-title">Effect</p>
+                                <p class="abilities-detail-move-effect"></p>
+                            </div>
+                            <div class="abilities-detail-learners-wrapp">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal_natures modal-hidden">
+            <div class="modal-inner">
+                <div class="modal-topbar">
+                    <p class="modal-topbar-name">Natures</p>
+                    <div class="modal-exit-btn"></div>
+                </div>
+                <div class="modal-content">
+                    <div class="modal-content-natures-search">
+                        <div class="natures-search-wrapp">
+                            <span class="natures-search-icon"></span> <input class="natures-search" type="search"
+                                placeholder="Search...">
+                        </div>
+                    </div>
+                    <div class="modal-content-nature-table-wrapp">
+                        <div class="modal-content-nature-table">
+                            <div class="nature-table-head">
+                                <p class="nature-table-head-item">Name</p>
+                                <p class="nature-table-head-item">Increased Stat</p>
+                                <p class="nature-table-head-item">Decreased Stat</p>
+                                <p class="nature-table-head-item">Favorite Flavor</p>
+                                <p class="nature-table-head-item">Hated Flavor</p>
+                            </div>
+                            <div class="nature-table-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal modal_typechart modal-hidden">
+            <div class="modal-inner">
+                <div class="typechart-back-icon"></div>
+                <div class="modal-content">
+                    <div class="modal-content-typechart-inner">
+                        <div class="attacker-list-icons-wrap">
+                            <p class="typechart-attacker">Attacker</p>
+                            <div class="attacker-list-icons">
+                                <div class="attacker-icon-wrapp normal-typechart-icon-wrapp">
+                                    <div class="attacker-icon normal-weak-icon" type="normal"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp fire-typechart-icon-wrapp">
+                                    <div class="attacker-icon fire-weak-icon" type="fire"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp water-typechart-icon-wrapp">
+                                    <div class="attacker-icon water-weak-icon" type="water"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp grass-typechart-icon-wrapp">
+                                    <div class="attacker-icon grass-weak-icon" type="grass"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp electric-typechart-icon-wrapp">
+                                    <div class="attacker-icon electric-weak-icon" type="electric"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp ice-typechart-icon-wrapp">
+                                    <div class="attacker-icon ice-weak-icon" type="ice"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp fighting-typechart-icon-wrapp">
+                                    <div class="attacker-icon fighting-weak-icon" type="fighting"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp poison-typechart-icon-wrapp">
+                                    <div class="attacker-icon poison-weak-icon" type="poison"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp ground-typechart-icon-wrapp">
+                                    <div class="attacker-icon ground-weak-icon" type="ground"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp flying-typechart-icon-wrapp">
+                                    <div class="attacker-icon flying-weak-icon" type="flying"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp psychic-typechart-icon-wrapp">
+                                    <div class="attacker-icon psychic-weak-icon" type="psychic"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp bug-typechart-icon-wrapp">
+                                    <div class="attacker-icon bug-weak-icon" type="bug"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp rock-typechart-icon-wrapp">
+                                    <div class="attacker-icon rock-weak-icon" type="rock"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp ghost-typechart-icon-wrapp">
+                                    <div class="attacker-icon ghost-weak-icon" type="ghost"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp dragon-typechart-icon-wrapp">
+                                    <div class="attacker-icon dragon-weak-icon" type="dragon"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp dark-typechart-icon-wrapp">
+                                    <div class="attacker-icon dark-weak-icon" type="dark"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp steel-typechart-icon-wrapp">
+                                    <div class="attacker-icon steel-weak-icon" type="steel"></div>
+                                </div>
+                                <div class="attacker-icon-wrapp fairy-typechart-icon-wrapp">
+                                    <div class="attacker-icon fairy-weak-icon" type="fairy"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-content-typechart-grid-wrap">
+                            <div class="defender-list-icons-wrap">
+                                <p class="typechart-defender">Defender</p>
+                                <div class="defender-list-icons">
+                                    <div class="defender-icon-wrapp normal-typechart-icon-wrapp">
+                                        <div class="defender-icon normal-weak-icon" type="normal"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp fire-typechart-icon-wrapp">
+                                        <div class="defender-icon fire-weak-icon" type="fire"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp water-typechart-icon-wrapp">
+                                        <div class="defender-icon water-weak-icon" type="water"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp grass-typechart-icon-wrapp">
+                                        <div class="defender-icon grass-weak-icon" type="grass"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp electric-typechart-icon-wrapp">
+                                        <div class="defender-icon electric-weak-icon" type="electric"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp ice-typechart-icon-wrapp">
+                                        <div class="defender-icon ice-weak-icon" type="ice"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp fighting-typechart-icon-wrapp">
+                                        <div class="defender-icon fighting-weak-icon" type="fighting"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp poison-typechart-icon-wrapp">
+                                        <div class="defender-icon poison-weak-icon" type="poison"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp ground-typechart-icon-wrapp">
+                                        <div class="defender-icon ground-weak-icon" type="ground"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp flying-typechart-icon-wrapp">
+                                        <div class="defender-icon flying-weak-icon" type="flying"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp psychic-typechart-icon-wrapp">
+                                        <div class="defender-icon psychic-weak-icon" type="psychic"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp bug-typechart-icon-wrapp">
+                                        <div class="defender-icon bug-weak-icon" type="bug"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp rock-typechart-icon-wrapp">
+                                        <div class="defender-icon rock-weak-icon" type="rock"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp ghost-typechart-icon-wrapp">
+                                        <div class="defender-icon ghost-weak-icon" type="ghost"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp dragon-typechart-icon-wrapp">
+                                        <div class="defender-icon dragon-weak-icon" type="dragon"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp dark-typechart-icon-wrapp">
+                                        <div class="defender-icon dark-weak-icon" type="dark"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp steel-typechart-icon-wrapp">
+                                        <div class="defender-icon steel-weak-icon" type="steel"></div>
+                                    </div>
+                                    <div class="defender-icon-wrapp fairy-typechart-icon-wrapp">
+                                        <div class="defender-icon fairy-weak-icon" type="fairy"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-content-typechart-grid">
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fire" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="grass" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="rock" a="normal">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-0x" d="ghost" a="normal">0</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="steel" a="normal">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="normal">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="fire">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fire" a="fire">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="water" a="fire">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="grass" a="fire">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="fire">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="ice" a="fire">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="fire">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="fire">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="fire">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="fire">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="fire">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="bug" a="fire">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="rock" a="fire">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="fire">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="dragon" a="fire">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="fire">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="steel" a="fire">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="fire">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="fire" a="water">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="water" a="water">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="grass" a="water">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="ground" a="water">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="rock" a="water">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="dragon" a="water">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="steel" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="water">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="grass">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fire" a="grass">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="water" a="grass">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="grass" a="grass">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="grass">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="grass">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="grass">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="poison" a="grass">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="ground" a="grass">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="flying" a="grass">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="grass">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="bug" a="grass">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="rock" a="grass">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="grass">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="dragon" a="grass">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="grass">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="steel" a="grass">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="grass">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fire" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="water" a="electric">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="grass" a="electric">0.5
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="electric" a="electric">0.5
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="electric">1
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-0x" d="ground" a="electric">0</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="flying" a="electric">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="rock" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="dragon" a="electric">0.5
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="steel" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="electric">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="ice">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fire" a="ice">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="water" a="ice">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="grass" a="ice">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="ice">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="ice" a="ice">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="ice">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="ice">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="ground" a="ice">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="flying" a="ice">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="ice">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="ice">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="rock" a="ice">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="ice">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="dragon" a="ice">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="ice">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="steel" a="ice">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="ice">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="normal" a="fighting">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fire" a="fighting">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="fighting">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="grass" a="fighting">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="fighting">1
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="ice" a="fighting">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="fighting">1
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="poison" a="fighting">0.5
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="fighting">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="flying" a="fighting">0.5
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="psychic" a="fighting">0.5
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="bug" a="fighting">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="rock" a="fighting">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-0x" d="ghost" a="fighting">0</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="fighting">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="dark" a="fighting">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="steel" a="fighting">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fairy" a="fighting">0.5
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fire" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="grass" a="poison">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="poison" a="poison">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="ground" a="poison">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="rock" a="poison">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="ghost" a="poison">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="poison">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-0x" d="steel" a="poison">0</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="fairy" a="poison">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="ground">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="fire" a="ground">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="ground">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="grass" a="ground">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="electric" a="ground">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="ground">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="ground">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="poison" a="ground">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="ground">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="flying" a="ground">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="ground">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="bug" a="ground">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="rock" a="ground">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="ground">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="ground">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="ground">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="steel" a="ground">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="ground">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fire" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="grass" a="flying">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="electric" a="flying">0.5
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="fighting" a="flying">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="bug" a="flying">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="rock" a="flying">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="steel" a="flying">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="flying">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fire" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="grass" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="fighting" a="psychic">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="poison" a="psychic">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="psychic" a="psychic">0.5
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="rock" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-0x" d="dark" a="psychic">0</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="steel" a="psychic">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="psychic">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="bug">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fire" a="bug">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="bug">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="grass" a="bug">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="bug">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="bug">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fighting" a="bug">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="poison" a="bug">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="bug">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="bug">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="psychic" a="bug">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="bug">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="rock" a="bug">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="ghost" a="bug">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="bug">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="dark" a="bug">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="steel" a="bug">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fairy" a="bug">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="fire" a="rock">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="grass" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="ice" a="rock">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fighting" a="rock">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="ground" a="rock">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="flying" a="rock">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="bug" a="rock">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="rock" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="steel" a="rock">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="rock">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-0x" d="normal" a="ghost">0</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fire" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="grass" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="psychic" a="ghost">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="rock" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="ghost" a="ghost">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="dark" a="ghost">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="steel" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="ghost">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fire" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="grass" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="rock" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="dragon" a="dragon">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="dragon">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="steel" a="dragon">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-0x" d="fairy" a="dragon">0</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fire" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="grass" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fighting" a="dark">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="psychic" a="dark">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="rock" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="ghost" a="dark">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="dark" a="dark">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="steel" a="dark">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fairy" a="dark">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fire" a="steel">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="water" a="steel">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="grass" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="electric" a="steel">0.5
+                                </div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="ice" a="steel">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fighting" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="poison" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="rock" a="steel">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dragon" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="dark" a="steel">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="steel" a="steel">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="fairy" a="steel">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="normal" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="fire" a="fairy">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="water" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="grass" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="electric" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ice" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="fighting" a="fairy">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="poison" a="fairy">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ground" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="flying" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="psychic" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="bug" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="rock" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="ghost" a="fairy">1</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="dragon" a="fairy">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-2x" d="dark" a="fairy">2</div>
+                                <div class="typechart-grid-item typechart-grid-item-05x" d="steel" a="fairy">0.5</div>
+                                <div class="typechart-grid-item typechart-grid-item-1x" d="fairy" a="fairy">1</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="credits-window">
+            <div class="credits-head">
+                <div class="credits-back-icon"></div>
+                <p class="credits-title">Credits</p>
+            </div>
+            <div class="credits-content">
+                <div class="credits-grid">
+                    <p class="credit-name">Developed By</p>
+                    <div class="credit-desc">Vittorio Cortosi<br>(github.com/cortosi)</div>
+                    <p class="credit-name">Font Face</p>
+                    <div class="credit-desc">GoogleFont</div>
+                    <p class="credit-name">All Pokemon Datas</p>
+                    <div class="credit-desc">Pokeapi.co</div>
+                    <p class="credit-name">Pokemon Type Icons</p>
+                    <div class="credit-desc">Andreuvv</div>
+                </div>
+            </div>
+        </div>
+        <div class="changelog-window">
+            <p class="changelog-title">Changelog</p>
+            <div class="changelog-list">
+                <div class="changelog-list-item">
+                    <p class="changelog-item-version">0.1.0</p>
+                    <div class="changelog-item-section">
+                        <p class="changelog-item-section-scope">GUI Update</p>
+                        <ul class="changelog-item-section-list">
+                            <li class="changelog-item-section-dot">Completely redesigned the Pokemon Detail interface
+                                for a better experience</li>
+                            <li class="changelog-item-section-dot">Slighlty changed the Pokedex Grid design and colors
+                            </li>
+                            <li class="changelog-item-section-dot">Completely redesigned the Moves interface for a
+                                better experience</li>
+                            <li class="changelog-item-section-dot">Slighlty changed the Items interface</li>
+                            <li class="changelog-item-section-dot">Slighlty changed the Abilities interface</li>
+                            <li class="changelog-item-section-dot">Now Natures is shown as a Table</li>
+                            <li class="changelog-item-section-dot">Slighlty changed the Typechart grid for a better
+                                experience</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-item-section">
+                        <p class="changelog-item-section-scope">Changes</p>
+                        <ul class="changelog-item-section-list">
+                            <li class="changelog-item-section-dot">The Search functionality for: Pokedex, Moves, Items
+                                and Abilities, has been redesigned</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-item-section">
+                        <p class="changelog-item-section-scope">Removed</p>
+                        <ul class="changelog-item-section-list">
+                            <li class="changelog-item-section-dot">Removed the Challenges section (will be inserted again in the next release)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="changelog-list-item">
+                    <p class="changelog-item-version">0.0.6</p>
+                    <div class="changelog-item-section">
+                        <p class="changelog-item-section-scope">BugFix</p>
+                        <ul class="changelog-item-section-list">
+                            <li class="changelog-item-section-dot">Fixed a bug where sometimes pokemon won't load</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="changelog-list-item">
+                    <p class="changelog-item-version">0.0.5</p>
+                    <div class="changelog-item-section">
+                        <p class="changelog-item-section-scope">HotFix</p>
+                        <ul class="changelog-item-section-list">
+                            <li class="changelog-item-section-dot">API Request Fixed</li>
+                        </ul>
+                        <p class="changelog-item-section-scope">BugFix</p>
+                        <ul class="changelog-item-section-list">
+                            <li class="changelog-item-section-dot">Fixed a bug where pokemon would sometimes load more
+                                than once when using search</li>
+                        </ul>
+                        <div class="changelog-item-section">
+                            <p class="changelog-item-section-scope">GUI Update</p>
+                            <ul class="changelog-item-section-list">
+                                <li class="changelog-item-section-dot">Weakness Grid moved into the new tool-sidebar
+                                    (More features will be added to this sidebar)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="changelog-list-item">
+                    <p class="changelog-item-version">0.0.4</p>
+                    <div class="changelog-item-section">
+                        <p class="changelog-item-section-scope">BugFix</p>
+                        <ul class="changelog-item-section-list">
+                            <li class="changelog-item-section-dot">Fixed a bug where pokemon would sometimes load more
+                                than once when using search</li>
+                            <li class="changelog-item-section-dot">Fixed a bug in the "Abilities" section in which the
+                                grid was not repopulated if the x icon was used to empty the search</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-item-section">
+                        <p class="changelog-item-section-scope">GUI Update</p>
+                        <ul class="changelog-item-section-list">
+                            <li class="changelog-item-section-dot">New Font: Fredoka</li>
+                            <li class="changelog-item-section-dot">Slighlty changed the Weakness Grid</li>
+                            <li class="changelog-item-section-dot">Slighlty changed the Pokemon Details window</li>
+                            <li class="changelog-item-section-dot">Slighlty changed the "Natures" section</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-item-section">
+                        <p class="changelog-item-section-scope">New Features</p>
+                        <ul class="changelog-item-section-list">
+                            <li class="changelog-item-section-dot">Hovering over the weakness grid now highlights the
+                                corresponding types</li>
+                            <li class="changelog-item-section-dot">Added a new tab (About) to the details of a pokemon
+                            </li>
+                            <li class="changelog-item-section-dot">Added a changelog under the Logo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loading-window">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>
