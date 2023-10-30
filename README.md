@@ -1,5 +1,5 @@
 # PokeExtension
-[![Twitch Link](https://img.shields.io/badge/Twitch_Extension-8A2BE2)](https://dashboard.twitch.tv/extensions/el1gmwag966xuou05ae2sv489kbzdr-0.0.6) 
+[![Twitch Link](https://img.shields.io/badge/Twitch_Extension-8A2BE2)](https://dashboard.twitch.tv/extensions/el1gmwag966xuou05ae2sv489kbzdr-0.1.0) 
 
 Twitch Extension for Pokemon to consult data relating to Pokemon, objects, nature, etc.
 ## Features
