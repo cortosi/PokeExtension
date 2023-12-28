@@ -52,7 +52,9 @@ export class MovesView {
         typeDiv.style.background = `url("${IMGS_PATH}${m.type}type.png") center/80% no-repeat`
         moveItem.style.backgroundColor = `var(--${m.type}-clr-bg-type)`
 
-        if (m.type == "dark" || m.type == "ground" || m.type == "water" || m.type == "steel" || m.type == "rock" || m.type == "poison" || m.type == "ghost" || m.type == "grass") {
+        if (m.type == "dark" || m.type == "ground" || m.type == "water" || m.type == "steel" || m.type == "rock"
+            || m.type == "poison" || m.type == "ghost" || m.type == "grass") {
+
             pwrWrapp.style.boxShadow = "0 0 .3rem var(--clr-primary-white)"
             accWrapp.style.boxShadow = "0 0 .3rem var(--clr-primary-white)"
             ppWrapp.style.boxShadow = "0 0 .3rem var(--clr-primary-white)"
@@ -71,14 +73,12 @@ export class MovesView {
         else
             pwrValue.textContent = "--"
 
-
         if (m.accuracy)
             accValue.textContent = m.accuracy
         else
             accValue.textContent = "--"
 
         ppValue.textContent = m.pp
-
 
         typeWrapper.appendChild(typeDiv)
         nameWrapp.appendChild(nameP)
@@ -158,6 +158,10 @@ export class MovesView {
         document.querySelector(".moves-detail-move-name").textContent = m.name.replace("-", " ")
         document.querySelector(".moves-detail-move-desc").textContent = m.description
         document.querySelector(".moves-detail-move-effect").textContent = m.effect
+
+        document.querySelector(".move-detail-pwr-value").textContent = m.power ?? "--"
+        document.querySelector(".move-detail-acc-value").textContent = m.accuracy ?? "--"
+        document.querySelector(".move-detail-pp-value").textContent = m.pp ?? "--"
 
         document.querySelector(".moves-detail-type-wrapp").style.backgroundColor = `var(--${m.type}-clr-bg-type)`
         document.querySelector(".moves-detail-type-icon").style.background = `url("${IMGS_PATH}${m.type}type.png") center/contain no-repeat`

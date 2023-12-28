@@ -81,6 +81,7 @@
     text-transform: capitalize;
     font-weight: 500;
 }
+
 /* GRID */
 
 .modal-content-moves-grid {
@@ -212,7 +213,7 @@
 }
 
 .moves-detail-wrapp {
-    height: fit-content;
+    max-height: 90%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -224,7 +225,60 @@
     border-radius: 1rem 1rem 0 0;
 }
 
-.moves-detail-top {}
+.moves-detail-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+}
+
+.move-detail-values-wrapp {
+    display: flex;
+    align-items: center;
+    column-gap: .6rem;
+    height: 100%;
+}
+
+.move-detail-acc-wrapp,
+.move-detail-pwr-wrapp,
+.move-detail-pp-wrapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: .5rem;
+    background-color: var(--clr-primary-white);
+    border-radius: .4rem;
+    padding: .5rem;
+    width: 6rem;
+}
+
+.move-detail-pwr-icon,
+.move-detail-acc-icon,
+.move-detail-pp-icon {
+    display: block;
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.move-detail-pwr-icon {
+    background: url("../imgs/icons/pwr.png") center/contain no-repeat;
+}
+
+.move-detail-acc-icon {
+    background: url("../imgs/icons/acc.png") center/contain no-repeat;
+}
+
+.move-detail-pp-icon {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.move-detail-pwr-value,
+.move-detail-acc-value,
+.move-detail-pp-value {
+    font-size: 1.7rem;
+}
 
 .moves-detail-move-name {
     font-size: 3.5rem;
@@ -234,6 +288,8 @@
 }
 
 .moves-detail-content {
+    display: flex;
+    flex-direction: column;
     width: 80%;
 }
 
@@ -281,4 +337,24 @@
     color: var(--clr-primary-white);
     font-weight: 200;
     line-height: 2.5rem;
+}
+
+.moves-detail-move-effect {
+    max-height: 250px;
+    overflow: auto;
+    text-align: justify;
+}
+
+.moves-detail-move-effect::-webkit-scrollbar {
+    width: 2.5rem;
+}
+
+.moves-detail-move-effect::-webkit-scrollbar-track {
+    background: var(--clr-text-grey);
+}
+
+.moves-detail-move-effect::-webkit-scrollbar-thumb {
+    background-color: var(--clr-primary-white);
+    border-radius: 2rem;
+    border: 1rem solid var(--clr-text-grey);
 }

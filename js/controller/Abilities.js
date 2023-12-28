@@ -22,7 +22,7 @@ export class Abilities {
         }
 
         // API OK
-        await this.loadAbilities(1, 30)
+        await this.loadAbilities(1, LOAD_BATCH)
         this.loadListeners()
     }
 

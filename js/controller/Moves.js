@@ -11,7 +11,7 @@ export class Moves {
     }
 
     async init() {
-        await this.loadMoves(1, 30)
+        await this.loadMoves(1, LOAD_BATCH)
         this.loadListeners()
     }
 

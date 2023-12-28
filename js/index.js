@@ -32,7 +32,6 @@ const ABILITIES_CONTROLLER = new Abilities(ABILITIES_VIEW)
 const NATURES_CONTROLLER = new Natures(NATURES_VIEW)
 const ITEMS_CONTROLLER = new Items(ITEMES_VIEW)
 
-
 // Set views' controller
 await POKEDEX_VIEW.setController(POKEDEX_CONTROLLER)
 await MOVES_VIEW.setController(MOVES_CONTROLLER)

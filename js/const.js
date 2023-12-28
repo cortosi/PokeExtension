@@ -18341,4 +18341,4 @@ export function getWeaknessToType(type, subType = null, attacker) {
     return weakness
 }
 
-export const LOAD_BATCH = 30
+export const LOAD_BATCH = 22

@@ -233,3 +233,23 @@
     font-weight: 200;
     line-height: 2.5rem;
 }
+
+.items-detail-item-effect {
+    max-height: 200px;
+    text-align: justify;
+    overflow: auto;
+}
+
+.items-detail-item-effect::-webkit-scrollbar {
+    width: 2.5rem;
+}
+
+.items-detail-item-effect::-webkit-scrollbar-track {
+    background: var(--clr-text-grey);
+}
+
+.items-detail-item-effect::-webkit-scrollbar-thumb {
+    background-color: var(--clr-primary-white);
+    border-radius: 2rem;
+    border: 1rem solid var(--clr-text-grey);
+}

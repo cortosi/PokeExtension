@@ -14,7 +14,7 @@ export class Items {
     }
 
     async init() {
-        await this.loadItems(1, 30)
+        await this.loadItems(1, LOAD_BATCH)
         this.loadListeners()
     }
 

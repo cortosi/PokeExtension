@@ -26,7 +26,7 @@ export class Pokedex {
         }
 
         // API OK
-        await this.loadPokedex(1, 30)
+        await this.loadPokedex(1, LOAD_BATCH)
         this.loadListeners()
     }
 

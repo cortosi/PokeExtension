@@ -177,8 +177,22 @@
     overflow: auto;
 }
 
-.abilities-detail-move-desc::-webkit-scrollbar,
 .abilities-detail-move-effect::-webkit-scrollbar {
+    width: 2.5rem;
+}
+
+.abilities-detail-move-effect::-webkit-scrollbar-track {
+    background: var(--clr-text-grey);
+}
+
+.abilities-detail-move-effect::-webkit-scrollbar-thumb {
+    background-color: var(--clr-primary-white);
+    border-radius: 2rem;
+    border: 1rem solid var(--clr-text-grey);
+}
+
+
+.abilities-detail-move-desc::-webkit-scrollbar {
     display: none;
 }
 
@@ -194,7 +208,17 @@
 }
 
 .abilities-detail-learners-wrapp::-webkit-scrollbar {
-    display: none
+    width: 2.5rem;
+}
+
+.abilities-detail-learners-wrapp::-webkit-scrollbar-track {
+    background: var(--clr-text-grey);
+}
+
+.abilities-detail-learners-wrapp::-webkit-scrollbar-thumb {
+    background-color: var(--clr-primary-white);
+    border-radius: 2rem;
+    border: 1rem solid var(--clr-text-grey);
 }
 
 .abilities-detail-learner-item {
